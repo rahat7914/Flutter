@@ -4,6 +4,19 @@ class Car {
   int enginePower = 250;
   double topSpeed = 300;
   String bodyColor = 'Red';
+  String carModel;
+  double maxAcceleration;
+  //Car(Sting inputCarModel, double maxAcceleration) is positional argument
+  //Car ({String inputCarModel, double maxAcceleration}) {..} is named argument
+
+  // Car({String inputCarModel, double maxAcceleration}){
+
+  //   carModel= inputCarModel;
+  //   this.maxAcceleration= maxAcceleration;
+  // }
+  Car(
+      {this.carModel,
+      this.maxAcceleration}); //Short constructor no function body
 }
 
 double addNumbers(double ranger1, double ranger2) {
@@ -14,8 +27,10 @@ double addNumbers(double ranger1, double ranger2) {
 }
 
 void main() {
-  var superCar1 = Car();
-  var superCar2 = Car();
+  var superCar1 = Car(carModel: 'M3', maxAcceleration: 3.2);
+  var superCar2 = Car(maxAcceleration: 3.7, carModel: 'Spider');
+  //Example of passing positional argument  var superCar3 = Car( 'Saloon' ,4.5);
+  //var superCar4 = Car() is just initializing the superCar4 objectvar superCar3 = Car();
   var superCar3 = Car();
 
   superCar3.bodyColor = 'Space gray';

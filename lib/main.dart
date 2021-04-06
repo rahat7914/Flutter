@@ -6,12 +6,12 @@ void main() {
   //Have to tell which widget to run -> MyFarmlyApp
   //Execute like a function with paranthesis, otherwise it's a type
   //You instantiate an object based on a class by adding a paranthesis
-  runApp(MyFarmlyApp());
+  runApp(MyApp());
 }
 
 //MyFarmlyApp is a class that inherits subclass StatelessWidget
 //MyFarmlyApp inherits the properties of SW class so it can turn into SW
-class MyFarmlyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   //build method will take in the object 'context' automatically
   //BuildContext is a type annotation
   //build method is called whenever DART needs to show something on the screen.
