@@ -16,6 +16,11 @@ double addNumbers(double ranger1, double ranger2) {
 void main() {
   var superCar1 = Car();
   var superCar2 = Car();
+  var superCar3 = Car();
+
+  superCar3.bodyColor = 'Space gray';
+
+  print(superCar3.bodyColor);
   print(superCar1.carName + ' ' + superCar1.engineType);
   superCar1.engineType = 'V12';
   superCar2.carName = 'Bugatti';
