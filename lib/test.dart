@@ -1,9 +1,11 @@
+//property: variable inside a class
+//Class name starts with Capital letter not camelCase
 class Car {
   String carName = 'Ferrari';
   String engineType = 'V8';
   int enginePower = 250;
   double topSpeed = 300;
-  String bodyColor = 'Red';
+  String bodyColor = 'Rid';
   String carModel;
   double maxAcceleration;
   //Car(Sting inputCarModel, double maxAcceleration) is positional argument
@@ -27,6 +29,7 @@ double addNumbers(double ranger1, double ranger2) {
 }
 
 void main() {
+  //Type inference feature of DART is var. automatically infers the type of a variable
   var superCar1 = Car(carModel: 'M3', maxAcceleration: 3.2);
   var superCar2 = Car(maxAcceleration: 3.7, carModel: 'Spider');
   //Example of passing positional argument  var superCar3 = Car( 'Saloon' ,4.5);
