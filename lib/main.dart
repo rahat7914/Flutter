@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import './question.dart';
 
 //main is the special kind of function that is executed at the start of program
 //Flutter is a strongly typed language
@@ -21,27 +22,31 @@ void main() => runApp(MyApp());
 //class MyApp extends Statelesswidget : Here the states of widget can not change
 class MyApp extends StatefulWidget {
   @override
+  //CreateState forces flutter to re-execute tht build method again, that makes it go throught the widget tree.
+  //In this case flutter does not render every pixel, but it knows which widget to re-render.
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
 //We have to make DART understand that MyAppState belongs to the MyApp class. Two connections need to be made
 //First add <MyApp> [pointer] after State [generic class] that tells DART that this State belongs to MyApp class
-class MyAppState extends State<MyApp> {
+//to Protect classes, properties from overrides by different flies, we simply add (_) _MyAppSate to declare this is private within this class
+//and cant be accessed from anywhere else.
+class _MyAppState extends State<MyApp> {
 //Tyring to display questions dynamically
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     // We use setState to tell Dart we are about to change the state
     // widget associated with that change only renders
     setState(() {
       // print('Chosen this answer');
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
 
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   void answerAnotherQuestion() {
@@ -78,7 +83,7 @@ class MyAppState extends State<MyApp> {
             Row(
               children: [
                 //Text(questions.elementAt(0)),
-                Text(questions[questionIndex]),
+                Text(questions[_questionIndex]),
               ],
             ),
             //Raised button is ElevatedButton
@@ -94,7 +99,7 @@ class MyAppState extends State<MyApp> {
                       //add function in the same class to make it a stand alone unit
                       //with paranthesis dart is executiing the funtion at runtime and trying to get a value. but void so no value
                       //In order to make onPressed work we have to pass a pointer of that method by removing the paranthesis. This way the method only executes when onPressed gets activated upon click
-                      onPressed: answerQuestion,
+                      onPressed: _answerQuestion,
                       child: Text('Answer 01'),
                     ),
                     ElevatedButton(
