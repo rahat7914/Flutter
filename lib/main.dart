@@ -80,10 +80,13 @@ class _MyAppState extends State<MyApp> {
         //body: Text('This is going to be Farmly app'),
         body: Column(
           children: [
-            Row(
+            //previously it was row but the align was not working. not much space on sideways
+            //now working on the column [vertical] enough sapce on sideways
+            //column sets everything centered in the table, where row keeps eveyrhing on left/right
+            Column(
               children: [
                 //Text(questions.elementAt(0)),
-                Text(questions[_questionIndex]),
+                Question(questions[_questionIndex]),
               ],
             ),
             //Raised button is ElevatedButton
@@ -115,7 +118,7 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       //Example of anonymous function () {funtion body} we use it, when this funtion is element specific
                       onPressed: () {
-                        print('Answer 04 is chosen');
+                        print('Answer 04 is chosen somethin jsut like this');
                       },
                       child: Text('Answer 04'),
                     ),
